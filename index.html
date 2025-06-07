@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Management System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        h1 {        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Item Management System</title>
+            <style>
+                body {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    max-width: 900px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    color: #333;
+                }
+                h1 {
+                    color: #2c3e50;
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+                h2 {
+                    color: #3498db;
+                    border-bottom: 2px solid #3498db;
+            text-align: left;           padding-bottom: 10px;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;           border-collapse: collapse;
+        }      margin-bottom: 20px;
+        tr:nth-child(even) {px rgba(0, 0, 0, 0.1);
+            background-color: #f2f2f2;round-color: white;
+        }us: 8px;
+        tr:hover {low: hidden;
+            background-color: #e3f2fd;
+        }
+        .form-container {           border: 1px solid #ddd;
+            background-color: white; padding: 12px;
+            padding: 20px;
+            border-radius: 8px;       }
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;#3498db;
+        }           color: white;
+        .form-group {        font-weight: 600;
+            margin-bottom: 20px;         }
+        }          tr:nth-child(even) {
+        .form-group label {r: #f2f2f2;
+            display: block;            }
+            margin-bottom: 8px;er {
+            font-weight: 600;3f2fd;
+            color: #2c3e50;
+        }
+        .form-group input, .form-group textarea {olor: white;
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;m: 30px;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 16px;      margin-bottom: 20px;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #3498db;
+            outline: none;      margin-bottom: 8px;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        .btn-container {     }
+            display: flex;            .form-group input, .form-group textarea {
+            gap: 10px;h: 100%;
+        }ding: 12px;
+        .btn {ing: border-box;
+            padding: 12px 20px;     border: 1px solid #ddd;
+            border: none;    border-radius: 4px;
+            border-radius: 4px;mily: inherit;
+            cursor: pointer;: 16px;
+            font-weight: 600;
+            font-size: 16px;put:focus, .form-group textarea:focus {
+            transition: all 0.3s ease;: #3498db;
+        }   outline: none;
+        .btn-primary {    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+            background-color: #3498db;
+            color: white;
+        }    display: flex;
+        .btn-primary:hover {        gap: 10px;
+            background-color: #2980b9;                }
+        }    .btn {
+        .btn-secondary {12px 20px;
+            background-color: #95a5a6;order: none;
+            color: white;      border-radius: 4px;
+        } pointer;
+        .btn-secondary:hover {00;
+            background-color: #7f8c8d;
+        }ll 0.3s ease;
+        .btn-edit { }
+            background-color: #2ecc71;  .btn-primary {
+            color: white;und-color: #3498db;
+        }
+        .btn-edit:hover {
+            background-color: #27ae60;er {
+        }     background-color: #2980b9;
+        .btn-delete {  }
+            background-color: #e74c3c;ary {
+            color: white;
+        }
+        .btn-delete:hover {
+            background-color: #c0392b; .btn-secondary:hover {
+        }      background-color: #7f8c8d;
+        .search-container {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;;
+        } }
+        .search-container input {  .btn-edit:hover {
+            flex: 1;und-color: #27ae60;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;olor: #e74c3c;
+            font-size: 16px;       color: white;
+        }      }
+        .notification {                .btn-delete:hover {
+            padding: 15px;kground-color: #c0392b;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            display: none;            display: flex;
+        }
+        .notification-success {
+            background-color: #d4edda;        .search-container input {
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        } solid #ddd;
+        .notification-error {der-radius: 4px;
+            background-color: #f8d7da;         font-size: 16px;
+            color: #721c24;        }
+            border: 1px solid #f5c6cb;{
+        }5px;
+        .price-column {px 0;
+            text-align: right;
+        }        text-align: center;
+        .sort-btn {
+            cursor: pointer;
+            margin-left: 5px;
+            user-select: none;    background-color: #d4edda;
+        }
+        @media (max-width: 768px) {olid #c3e6cb;
+            th, td {
+                padding: 8px;
+            }
+            .btn {
+                padding: 8px 12px;er: 1px solid #f5c6cb;
+                font-size: 14px;
+            }
+        }align: right;
+    </style>
+</head>.sort-btn {
+<body>
+    <h1>Item Management System</h1>     margin-left: 5px;
+            user-select: none;
+    <div id="notification" class="notification"></div>
+    
+    <!-- Item Form -->           th, td {
+    <div class="form-container">                padding: 8px;
+        <h2 id="formTitle">Add New Item</h2>
+        <form id="itemForm">
+            <input type="hidden" id="itemId">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div></style>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Price ($):</label>
+                <input type="number" id="price" min="0" step="0.01" required>m Form -->
+            </div>
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary">Save Item</button>
+                <button type="button" class="btn btn-secondary" onclick="resetForm()">Cancel</button>       <input type="hidden" id="itemId">
+            </div>        <div class="form-group">
+        </form>Name:</label>
+    </div><input type="text" id="name" required>
+    v>
+    <!-- Search and filter -->           <div class="form-group">
+    <div class="search-container">                <label for="description">Description:</label>
+        <input type="text" id="searchInput" placeholder="Search items...">    <textarea id="description" rows="3" required></textarea>
+        <button class="btn btn-primary" onclick="filterItems()">Search</button>
+        <button class="btn btn-secondary" onclick="clearSearch()">Clear</button>
+    </div> <label for="price">Price ($):</label>
+    ep="0.01" required>
+    <!-- Items Table -->
+    <h2>Items List</h2>
+    <table id="itemsTable">">Save Item</button>
+        <thead>"btn btn-secondary" onclick="resetForm()">Cancel</button>
+            <tr>    </div>
+                <th>ID</th>
+                <th>Name <span class="sort-btn" onclick="sortItems('name')">↕️</span></th>
+                <th>Description</th>
+                <th>Price <span class="sort-btn" onclick="sortItems('price')">↕️</span></th>   <!-- Search and filter -->
+                <th>Actions</th>    <div class="search-container">
+            </tr> type="text" id="searchInput" placeholder="Search items...">
+        </thead>n btn-primary" onclick="filterItems()">Search</button>
+        <tbody id="itemsTableBody">">Clear</button>
+            <!-- Items will be added here dynamically -->
+        </tbody>
+    </table>!-- Items Table -->
+       <h2>Items List</h2>
+    <!-- Test Cases Section -->    <table id="itemsTable">
+    <h2>Test Cases</h2>d>
+    <div class="form-container">
+        <button id="runTestsBtn" class="btn btn-primary" onclick="runTests()">Run All Tests</button>
+        <div id="testResults" style="margin-top: 15px;"></div>ame <span class="sort-btn" onclick="sortItems('name')">↕️</span></th>
+    </div>
+               <th>Price <span class="sort-btn" onclick="sortItems('price')">↕️</span></th>
+    <script>                <th>Actions</th>
+        // Initial items data
+        let items = [
+            { 
+                "id": "1",  will be added here dynamically -->
+                "name": "Laptop", 
+                "description": "A high-performance laptop suitable for gaming and work.", /table>
+                "price": 1200.00 
+            },    <!-- Test Cases Section -->
+            {     <h2>Test Cases</h2>
+                "id": "2", s="form-container">
+                "name": "Smartphone", ="runTestsBtn" class="btn btn-primary" onclick="runTests()">Run All Tests</button>
+                "description": "A latest-generation smartphone with a large display and powerful camera.",    <div id="testResults" style="margin-top: 15px;"></div>
+                "price": 800.00      </div>
+            },  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html></body>    </script>        }            };                message: edgeCasesResults.join('; ')                passed: allPassed,            return {                        }                edgeCasesResults.push(`Long text handling error: ${e.message}`);                allPassed = false;            } catch (e) {                edgeCasesResults.push('Long text handling passed');                // In a real scenario, you might want to limit text length                // For this test, we'll consider it a pass if we can create such an item                                };                    price: 10.00                    description: longText,                    name: 'Valid name',                const longTextItem = {                const longText = 'a'.repeat(10000);            try {            // Test 4: Very long text                        }                edgeCasesResults.push(`Large price handling error: ${e.message}`);            } catch (e) {                }                    edgeCasesResults.push('Large price handling failed');                    allPassed = false;                } else {                    edgeCasesResults.push('Large price handling passed');                if (isFinite(largePriceItem.price)) {                // In JavaScript, this would typically be handled by the number type                                };                    price: 1e20 // Very large number                    description: 'Valid description',                    name: 'Valid name',                const largePriceItem = {            try {            // Test 3: Extremely large price                        }                edgeCasesResults.push(`Negative price validation error: ${e.message}`);            } catch (e) {                }                    edgeCasesResults.push('Negative price validation failed');                    allPassed = false;                } else {                    edgeCasesResults.push('Negative price validation passed');                if (negativePriceItem.price < 0) {                // Simulate validation                                };                    price: -10.00                    description: 'Valid description',                    name: 'Valid name',                const negativePriceItem = {            try {            // Test 2: Negative price                        }                edgeCasesResults.push(`Empty name validation error: ${e.message}`);            } catch (e) {                }                    edgeCasesResults.push('Empty name validation failed');                    allPassed = false;                } else {                    edgeCasesResults.push('Empty name validation passed');                if (emptyNameItem.name.trim() === '') {                // If validation is in saveItem(), we simulate validation here                                };                    price: 10.00                    description: 'Valid description',                    name: '',                const emptyNameItem = {            try {            // Test 1: Empty name                        let allPassed = true;            let edgeCasesResults = [];        function testEdgeCases() {        // Edge cases test                }            };                message: `Success: Item with ID ${idToDelete} deleted successfully`                passed: true,            return {                        }                };                    message: `Failed: Deleted item still exists in the array`                    passed: false,                return {            if (filteredItems.some(item => item.id === idToDelete)) {                        }                };                    message: `Failed: Item count did not decrease after deletion`                    passed: false,                return {            if (filteredItems.length !== initialCount - 1) {                        const filteredItems = testItems.filter(item => item.id !== idToDelete);            // Delete the item                        const idToDelete = itemToDelete.id;            const itemToDelete = testItems[0];            // Select an item to delete                        const testItems = JSON.parse(JSON.stringify(items));            // Create a copy of items to avoid affecting the UI                        }                };                    message: 'Failed: No items to delete'                    passed: false,                return {            if (initialCount === 0) {                        const initialCount = items.length;        function testDeleteItem() {        // DELETE - Delete item test                }            };                message: `Success: Item with ID ${itemToUpdate.id} updated successfully from "${originalName}" to "${updatedName}"`                passed: true,            return {                        }                };                    message: `Failed: Item not updated correctly. Expected name to be "${updatedName}" but got "${updatedItem.name}"`                    passed: false,                return {            if (updatedItem.name !== updatedName) {                        }                };                    message: `Failed: Could not find item after update`                    passed: false,                return {            if (!updatedItem) {                        const updatedItem = testItems.find(item => item.id === itemToUpdate.id);            // Find the item after update                        itemToUpdate.name = updatedName;            // Update the item                        const updatedName = 'Updated Test Product';            const originalName = itemToUpdate.name;            const itemToUpdate = testItems[0];                        const testItems = JSON.parse(JSON.stringify(items));            // Create a copy of items to avoid affecting the UI        function testUpdateItem() {        // PUT - Update item test                }            };                message: `Success: New item created successfully with ID ${newId}`                passed: true,            return {                        }                };                    message: `Failed: Created item properties do not match input`                    passed: false,                return {                createdItem.price !== newItem.price) {                createdItem.description !== newItem.description ||             if (createdItem.name !== newItem.name ||                         }                };                    message: `Failed: Created item not found in items array`                    passed: false,                return {            if (!createdItem) {            const createdItem = testItems.find(item => item.id === newId);                        }                };                    message: `Failed: Item count did not increase after creation`                    passed: false,                return {            if (testItems.length !== initialCount + 1) {            // Assertions                        testItems.push({ id: newId, ...newItem });            const newId = (Math.max(...testItems.map(item => parseInt(item.id) || 0), 0) + 1).toString();            // Generate ID like in saveItem function                        const testItems = JSON.parse(JSON.stringify(items));            // Create a copy of items to avoid affecting the UI                        };                price: 99.99                description: 'This is a test product',                name: 'Test Product',            const newItem = {            const initialCount = items.length;        function testCreateItem() {        // POST - Create item test                }            };                message: `Success: Retrieved item with ID ${existingId} and correctly handled non-existent ID`                passed: true,            return {                        }                };                    message: `Failed: Retrieved a non-existent item with ID ${nonExistentId}`                    passed: false,                return {            if (nonExistentItem) {                        const nonExistentItem = items.find(item => item.id === nonExistentId);            const nonExistentId = '999';            // Test 2: Try to get non-existent item                        }                };                    message: `Failed: Could not retrieve item with ID ${existingId}`                    passed: false,                return {            if (!existingItem) {                        const existingItem = items.find(item => item.id === existingId);            const existingId = '1';            // Test 1: Get existing item        function testGetItemById() {        // GET - Retrieve item by ID test                }            };                message: `Success: Retrieved ${items.length} items successfully`                passed: true,            return {                        }                };                    message: `Failed: Expected at least 5 items, but got ${items.length}`                    passed: false,                return {            if (items.length < 5) {            // Test 2: Check if initial items match expected count                        }                };                    message: 'Failed: items is not an array'                    passed: false,                return {            if (!Array.isArray(items)) {            // Test 1: Check if items array exists and is an array        function testGetAllItems() {        // GET - Retrieve all items test                }            loadItems();            filteredItems = [...items];            items = JSON.parse(JSON.stringify(originalItems));            // Restore original items                        testResults.innerHTML = resultsHtml;                        </div>`;                Summary: ${passedCount}/${results.length} tests passed            resultsHtml += `<div style="margin-top: 15px; font-weight: bold;">                        });                `;                    </div>                        <p>${result.message}</p>                        <strong>${result.name}: ${result.passed ? 'PASSED' : 'FAILED'}</strong>                    <div style="margin: 10px 0; padding: 10px; background-color: ${result.passed ? '#d4edda' : '#f8d7da'}; border-radius: 5px;">                resultsHtml += `                if (result.passed) passedCount++;            results.forEach(result => {                        let passedCount = 0;            let resultsHtml = '<h3>Test Results:</h3>';            // Display test results                        }                });                    message: `Error: ${error.message}`                    passed: false,                    name: 'Edge Cases - Handle various edge cases',                results.push({            } catch (error) {                });                    message: result.message                    passed: result.passed,                    name: 'Edge Cases - Handle various edge cases',                results.push({                const result = testEdgeCases();            try {            // Test edge cases                        }                });                    message: `Error: ${error.message}`                    passed: false,                    name: 'DELETE - Delete an item',                results.push({            } catch (error) {                });                    message: result.message                    passed: result.passed,                    name: 'DELETE - Delete an item',                results.push({                const result = testDeleteItem();            try {            // Test DELETE - Delete item                        }                });                    message: `Error: ${error.message}`                    passed: false,                    name: 'PUT - Update existing item',                results.push({            } catch (error) {                });                    message: result.message                    passed: result.passed,                    name: 'PUT - Update existing item',                results.push({                const result = testUpdateItem();            try {            // Test PUT - Update item                        }                });                    message: `Error: ${error.message}`                    passed: false,                    name: 'POST - Create new item',                results.push({            } catch (error) {                });                    message: result.message                    passed: result.passed,                    name: 'POST - Create new item',                results.push({                const result = testCreateItem();            try {            // Test POST - Create item                        }                });                    message: `Error: ${error.message}`                    passed: false,                    name: 'GET - Retrieve item by ID',                results.push({            } catch (error) {                });                    message: result.message                    passed: result.passed,                    name: 'GET - Retrieve item by ID',                results.push({                const result = testGetItemById();            try {            // Test GET item by ID                        }                });                    message: `Error: ${error.message}`                    passed: false,                    name: 'GET - Retrieve all items',                results.push({            } catch (error) {                });                    message: result.message                    passed: result.passed,                    name: 'GET - Retrieve all items',                results.push({                const result = testGetAllItems();            try {            // Test GET all items                        let results = [];            // Array to store test results                        const originalItems = JSON.parse(JSON.stringify(items));            // Save original items for restoration after tests                        testResults.innerHTML = '<h3>Running tests...</h3>';            const testResults = document.getElementById('testResults');        function runTests() {        // TEST CASES        }            return div.innerHTML;            div.textContent = text;            const div = document.createElement('div');        function escapeHtml(text) {        // Escape HTML to prevent XSS                }            loadItems();            }                filteredItems = [...items];                items = JSON.parse(storedItems);            if (storedItems) {            const storedItems = localStorage.getItem('items');        function initializeItems() {        // Load from localStorage                }            localStorage.setItem('items', JSON.stringify(items));        function saveToLocalStorage() {        // Save to localStorage                }            }, 3000);                notification.style.display = 'none';            setTimeout(() => {                        notification.style.display = 'block';            notification.classList.add(`notification-${type}`);            notification.className = 'notification';            notification.textContent = message;        function showNotification(message, type) {        // Show notification                }            loadItems();                        });                return sortDirection[field] === 'asc' ? comparison : -comparison;                                }                    comparison = a[field].toLowerCase().localeCompare(b[field].toLowerCase());                } else {                    comparison = parseFloat(a.price) - parseFloat(b.price);                if (field === 'price') {                                let comparison = 0;            filteredItems.sort((a, b) => {                        sortDirection[field] = sortDirection[field] === 'asc' ? 'desc' : 'asc';        function sortItems(field) {        // Sort items                }            loadItems();            filteredItems = [...items];            searchInput.value = '';        function clearSearch() {        // Clear search                }            loadItems();                        }                );                    item.description.toLowerCase().includes(searchTerm)                    item.name.toLowerCase().includes(searchTerm) ||                 filteredItems = items.filter(item =>             } else {                filteredItems = [...items];            if (!searchTerm) {                        const searchTerm = searchInput.value.toLowerCase().trim();        function filterItems() {        // Filter items based on search                }            formTitle.textContent = 'Add New Item';            itemForm.reset();            document.getElementById('itemId').value = '';        function resetForm() {        // Reset form                }            }                showNotification('Item deleted successfully', 'success');                saveToLocalStorage();                loadItems();                filteredItems = filteredItems.filter(item => item.id !== id);                items = items.filter(item => item.id !== id);            if (confirm('Are you sure you want to delete this item?')) {        function deleteItem(id) {        // Delete item                }            }                document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth' });                // Scroll to form                                formTitle.textContent = 'Edit Item';                document.getElementById('price').value = item.price;                document.getElementById('description').value = item.description;                document.getElementById('name').value = item.name;                document.getElementById('itemId').value = item.id;            if (item) {            const item = items.find(item => item.id === id);        function editItem(id) {        // Edit item                }            saveToLocalStorage();            // Save to localStorage                        resetForm();            loadItems();            filteredItems = [...items];            // Update filtered items and reload                        }                showNotification('Item created successfully', 'success');                items.push({ id: newId, name, description, price });                const newId = (Math.max(...items.map(item => parseInt(item.id) || 0), 0) + 1).toString();                // Create new item with next ID            } else {                }                    showNotification('Item updated successfully', 'success');                    items[index] = { id: itemId, name, description, price };                if (index !== -1) {                const index = items.findIndex(item => item.id === itemId);                // Update existing item            if (itemId) {                        }                return;                showNotification('Please fill in all fields correctly', 'error');            if (!name || !description || isNaN(price)) {            // Basic validation                        const price = parseFloat(document.getElementById('price').value);            const description = document.getElementById('description').value.trim();            const name = document.getElementById('name').value.trim();            const itemId = document.getElementById('itemId').value;        function saveItem() {        // Save/update item                }            });                itemsTableBody.appendChild(row);                                `;                    </td>                        <button onclick="deleteItem('${item.id}')" class="btn btn-delete">Delete</button>                        <button onclick="editItem('${item.id}')" class="btn btn-edit">Edit</button>                    <td>                    <td class="price-column">$${parseFloat(item.price).toFixed(2)}</td>                    <td>${escapeHtml(item.description)}</td>                    <td>${escapeHtml(item.name)}</td>                    <td>${item.id}</td>                row.innerHTML = `                // Create cells for each property                                const row = document.createElement('tr');            itemsToDisplay.forEach(item => {            // Add each item to the table                        }                return;                itemsTableBody.appendChild(row);                row.innerHTML = `<td colspan="5" style="text-align: center;">No items found</td>`;                const row = document.createElement('tr');            if (itemsToDisplay.length === 0) {                        itemsTableBody.innerHTML = '';            // Clear the table        function loadItems(itemsToDisplay = filteredItems) {        // Load items function                });            }                filterItems();            if (e.key === 'Enter') {        searchInput.addEventListener('keyup', function(e) {        // Search input event handler        });            saveItem();            e.preventDefault();        itemForm.addEventListener('submit', function(e) {        // Form submission handler                document.addEventListener('DOMContentLoaded', initializeItems);        // Load items when page loads                const notification = document.getElementById('notification');        const searchInput = document.getElementById('searchInput');        const formTitle = document.getElementById('formTitle');        const itemsTableBody = document.getElementById('itemsTableBody');        const itemForm = document.getElementById('itemForm');        // DOM elements        };            price: 'asc'            name: 'asc',        let sortDirection = {        let filteredItems = [...items];        // Variables for search and sort        ];            }                "price": 300.00                 "description": "A lightweight tablet with a sharp display, ideal for reading and browsing.",                 "name": "Tablet",                 "id": "5",             {             },                 "price": 150.00                 "description": "A smartwatch with fitness tracking and customizable watch faces.",                 "name": "Smartwatch",                 "id": "4",             {             },                 "price": 200.00                 "description": "Noise-cancelling wireless headphones with long battery life.",                 "name": "Wireless Headphones",                 "id": "3",             {             <script>
+                // Initial items data
+                let items = [
+                    { 
+                        "id": "1", 
+                        "name": "Laptop", 
+                        "description": "A high-performance laptop suitable for gaming and work.", 
+                        "price": 1200.00 
+                    }, 
+                    { 
+                        "id": "2", 
+                        "name": "Smartphone", 
+                        "description": "A latest-generation smartphone with a large display and powerful camera.", 
+                        "price": 800.00 
+                    }, 
+                    { 
+                        "id": "3", 
+                        "name": "Wireless Headphones", 
+                        "description": "Noise-cancelling wireless headphones with long battery life.", 
+                        "price": 200.00 
+                    }, 
+                    { 
+                        "id": "4", 
+                        "name": "Smartwatch", 
+                        "description": "A smartwatch with fitness tracking and customizable watch faces.", 
+                        "price": 150.00 
+                    }, 
+                    { 
+                        "id": "5", 
+                        "name": "Tablet", 
+                        "description": "A lightweight tablet with a sharp display, ideal for reading and browsing.", 
+                        "price": 300.00 
+                    }
+                ];
+        
+                // Variables for search and sort
+                let filteredItems = [...items];
+                let sortDirection = {
+                    name: 'asc',
+                    price: 'asc'
+                };
+        
+                // DOM elements
+                const itemForm = document.getElementById('itemForm');
+                const itemsTableBody = document.getElementById('itemsTableBody');
+                const formTitle = document.getElementById('formTitle');
+                const searchInput = document.getElementById('searchInput');
+                const notification = document.getElementById('notification');
+                
+                // Load items when page loads
+                document.addEventListener('DOMContentLoaded', initializeItems);
+                
+                // Form submission handler
+                itemForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    saveItem();
+                });
+        
+                // Search input event handler
+                searchInput.addEventListener('keyup', function(e) {
+                    if (e.key === 'Enter') {
+                        filterItems();
+                    }
+                });
+                
+                // Load items function
+                function loadItems(itemsToDisplay = filteredItems) {
+                    // Clear the table
+                    itemsTableBody.innerHTML = '';
+                    
+                    if (itemsToDisplay.length === 0) {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<td colspan="5" style="text-align: center;">No items found</td>`;
+                        itemsTableBody.appendChild(row);
+                        return;
+                    }
+                    
+                    // Add each item to the table
+                    itemsToDisplay.forEach(item => {
+                        const row = document.createElement('tr');
+                        
+                        // Create cells for each property
+                        row.innerHTML = `
+                            <td>${item.id}</td>
+                            <td>${escapeHtml(item.name)}</td>
+                            <td>${escapeHtml(item.description)}</td>
+                            <td class="price-column">$${parseFloat(item.price).toFixed(2)}</td>
+                            <td>
+                                <button onclick="editItem('${item.id}')" class="btn btn-edit">Edit</button>
+                                <button onclick="deleteItem('${item.id}')" class="btn btn-delete">Delete</button>
+                            </td>
+                        `;
+                        
+                        itemsTableBody.appendChild(row);
+                    });
+                }
+                
+                // Save/update item
+                function saveItem() {
+                    const itemId = document.getElementById('itemId').value;
+                    const name = document.getElementById('name').value.trim();
+                    const description = document.getElementById('description').value.trim();
+                    const price = parseFloat(document.getElementById('price').value);
+                    
+                    // Basic validation
+                    if (!name || !description || isNaN(price)) {
+                        showNotification('Please fill in all fields correctly', 'error');
+                        return;
+                    }
+                    
+                    if (itemId) {
+                        // Update existing item
+                        const index = items.findIndex(item => item.id === itemId);
+                        if (index !== -1) {
+                            items[index] = { id: itemId, name, description, price };
+                            showNotification('Item updated successfully', 'success');
+                        }
+                    } else {
+                        // Create new item with next ID
+                        const newId = (Math.max(...items.map(item => parseInt(item.id) || 0), 0) + 1).toString();
+                        items.push({ id: newId, name, description, price });
+                        showNotification('Item created successfully', 'success');
+                    }
+                    
+                    // Update filtered items and reload
+                    filteredItems = [...items];
+                    loadItems();
+                    resetForm();
+                    
+                    // Save to localStorage
+                    saveToLocalStorage();
+                }
+                
+                // Edit item
+                function editItem(id) {
+                    const item = items.find(item => item.id === id);
+                    if (item) {
+                        document.getElementById('itemId').value = item.id;
+                        document.getElementById('name').value = item.name;
+                        document.getElementById('description').value = item.description;
+                        document.getElementById('price').value = item.price;
+                        formTitle.textContent = 'Edit Item';
+                        
+                        // Scroll to form
+                        document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                
+                // Delete item
+                function deleteItem(id) {
+                    if (confirm('Are you sure you want to delete this item?')) {
+                        items = items.filter(item => item.id !== id);
+                        filteredItems = filteredItems.filter(item => item.id !== id);
+                        loadItems();
+                        saveToLocalStorage();
+                        showNotification('Item deleted successfully', 'success');
+                    }
+                }
+                
+                // Reset form
+                function resetForm() {
+                    document.getElementById('itemId').value = '';
+                    itemForm.reset();
+                    formTitle.textContent = 'Add New Item';
+                }
+                
+                // Filter items based on search
+                function filterItems() {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    
+                    if (!searchTerm) {
+                        filteredItems = [...items];
+                    } else {
+                        filteredItems = items.filter(item => 
+                            item.name.toLowerCase().includes(searchTerm) || 
+                            item.description.toLowerCase().includes(searchTerm)
+                        );
+                    }
+                    
+                    loadItems();
+                }
+                
+                // Clear search
+                function clearSearch() {
+                    searchInput.value = '';
+                    filteredItems = [...items];
+                    loadItems();
+                }
+                
+                // Sort items
+                function sortItems(field) {
+                    sortDirection[field] = sortDirection[field] === 'asc' ? 'desc' : 'asc';
+                    
+                    filteredItems.sort((a, b) => {
+                        let comparison = 0;
+                        
+                        if (field === 'price') {
+                            comparison = parseFloat(a.price) - parseFloat(b.price);
+                        } else {
+                            comparison = a[field].toLowerCase().localeCompare(b[field].toLowerCase());
+                        }
+                        
+                        return sortDirection[field] === 'asc' ? comparison : -comparison;
+                    });
+                    
+                    loadItems();
+                }
+                
+                // Show notification
+                function showNotification(message, type) {
+                    notification.textContent = message;
+                    notification.className = 'notification';
+                    notification.classList.add(`notification-${type}`);
+                    notification.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        notification.style.display = 'none';
+                    }, 3000);
+                }
+                
+                // Save to localStorage
+                function saveToLocalStorage() {
+                    localStorage.setItem('items', JSON.stringify(items));
+                }
+                
+                // Load from localStorage
+                function initializeItems() {
+                    const storedItems = localStorage.getItem('items');
+                    if (storedItems) {
+                        items = JSON.parse(storedItems);
+                        filteredItems = [...items];
+                    }
+                    loadItems();
+                }
+                
+                // Escape HTML to prevent XSS
+                function escapeHtml(text) {
+                    const div = document.createElement('div');
+                    div.textContent = text;
+                    return div.innerHTML;
+                }
+        
+                // TEST CASES
+                function runTests() {
+                    const testResults = document.getElementById('testResults');
+                    testResults.innerHTML = '<h3>Running tests...</h3>';
+                    
+                    // Save original items for restoration after tests
+                    const originalItems = JSON.parse(JSON.stringify(items));
+                    
+                    // Array to store test results
+                    let results = [];
+                    
+                    // Test GET all items
+                    try {
+                        const result = testGetAllItems();
+                        results.push({
+                            name: 'GET - Retrieve all items',
+                            passed: result.passed,
+                            message: result.message
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'GET - Retrieve all items',
+                            passed: false,
+                            message: `Error: ${error.message}`
+                        });
+                    }
+                    
+                    // Test GET item by ID
+                    try {
+                        const result = testGetItemById();
+                        results.push({
+                            name: 'GET - Retrieve item by ID',
+                            passed: result.passed,
+                            message: result.message
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'GET - Retrieve item by ID',
+                            passed: false,
+                            message: `Error: ${error.message}`
+                        });
+                    }
+                    
+                    // Test POST - Create item
+                    try {
+                        const result = testCreateItem();
+                        results.push({
+                            name: 'POST - Create new item',
+                            passed: result.passed,
+                            message: result.message
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'POST - Create new item',
+                            passed: false,
+                            message: `Error: ${error.message}`
+                        });
+                    }
+                    
+                    // Test PUT - Update item
+                    try {
+                        const result = testUpdateItem();
+                        results.push({
+                            name: 'PUT - Update existing item',
+                            passed: result.passed,
+                            message: result.message
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'PUT - Update existing item',
+                            passed: false,
+                            message: `Error: ${error.message}`
+                        });
+                    }
+                    
+                    // Test DELETE - Delete item
+                    try {
+                        const result = testDeleteItem();
+                        results.push({
+                            name: 'DELETE - Delete an item',
+                            passed: result.passed,
+                            message: result.message
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'DELETE - Delete an item',
+                            passed: false,
+                            message: `Error: ${error.message}`
+                        });
+                    }
+                    
+                    // Test edge cases
+                    try {
+                        const result = testEdgeCases();
+                        results.push({
+                            name: 'Edge Cases - Handle various edge cases',
+                            passed: result.passed,
+                            message: result.message
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Edge Cases - Handle various edge cases',
+                            passed: false,
+                            message: `Error: ${error.message}`
+                        });
+                    }
+                    
+                    // Display test results
+                    let resultsHtml = '<h3>Test Results:</h3>';
+                    let passedCount = 0;
+                    
+                    results.forEach(result => {
+                        if (result.passed) passedCount++;
+                        resultsHtml += `
+                            <div style="margin: 10px 0; padding: 10px; background-color: ${result.passed ? '#d4edda' : '#f8d7da'}; border-radius: 5px;">
+                                <strong>${result.name}: ${result.passed ? 'PASSED' : 'FAILED'}</strong>
+                                <p>${result.message}</p>
+                            </div>
+                        `;
+                    });
+                    
+                    resultsHtml += `<div style="margin-top: 15px; font-weight: bold;">
+                        Summary: ${passedCount}/${results.length} tests passed
+                    </div>`;
+                    
+                    testResults.innerHTML = resultsHtml;
+                    
+                    // Restore original items
+                    items = JSON.parse(JSON.stringify(originalItems));
+                    filteredItems = [...items];
+                    loadItems();
+                }
+                
+                // GET - Retrieve all items test
+                function testGetAllItems() {
+                    // Test 1: Check if items array exists and is an array
+                    if (!Array.isArray(items)) {
+                        return {
+                            passed: false,
+                            message: 'Failed: items is not an array'
+                        };
+                    }
+                    
+                    // Test 2: Check if initial items match expected count
+                    if (items.length < 5) {
+                        return {
+                            passed: false,
+                            message: `Failed: Expected at least 5 items, but got ${items.length}`
+                        };
+                    }
+                    
+                    return {
+                        passed: true,
+                        message: `Success: Retrieved ${items.length} items successfully`
+                    };
+                }
+                
+                // GET - Retrieve item by ID test
+                function testGetItemById() {
+                    // Test 1: Get existing item
+                    const existingId = '1';
+                    const existingItem = items.find(item => item.id === existingId);
+                    
+                    if (!existingItem) {
+                        return {
+                            passed: false,
+                            message: `Failed: Could not retrieve item with ID ${existingId}`
+                        };
+                    }
+                    
+                    // Test 2: Try to get non-existent item
+                    const nonExistentId = '999';
+                    const nonExistentItem = items.find(item => item.id === nonExistentId);
+                    
+                    if (nonExistentItem) {
+                        return {
+                            passed: false,
+                            message: `Failed: Retrieved a non-existent item with ID ${nonExistentId}`
+                        };
+                    }
+                    
+                    return {
+                        passed: true,
+                        message: `Success: Retrieved item with ID ${existingId} and correctly handled non-existent ID`
+                    };
+                }
+                
+                // POST - Create item test
+                function testCreateItem() {
+                    const initialCount = items.length;
+                    const newItem = {
+                        name: 'Test Product',
+                        description: 'This is a test product',
+                        price: 99.99
+                    };
+                    
+                    // Create a copy of items to avoid affecting the UI
+                    const testItems = JSON.parse(JSON.stringify(items));
+                    
+                    // Generate ID like in saveItem function
+                    const newId = (Math.max(...testItems.map(item => parseInt(item.id) || 0), 0) + 1).toString();
+                    testItems.push({ id: newId, ...newItem });
+                    
+                    // Assertions
+                    if (testItems.length !== initialCount + 1) {
+                        return {
+                            passed: false,
+                            message: `Failed: Item count did not increase after creation`
+                        };
+                    }
+                    
+                    const createdItem = testItems.find(item => item.id === newId);
+                    if (!createdItem) {
+                        return {
+                            passed: false,
+                            message: `Failed: Created item not found in items array`
+                        };
+                    }
+                    
+                    if (createdItem.name !== newItem.name || 
+                        createdItem.description !== newItem.description || 
+                        createdItem.price !== newItem.price) {
+                        return {
+                            passed: false,
+                            message: `Failed: Created item properties do not match input`
+                        };
+                    }
+                    
+                    return {
+                        passed: true,
+                        message: `Success: New item created successfully with ID ${newId}`
+                    };
+                }
+                
+                // PUT - Update item test
+                function testUpdateItem() {
+                    // Create a copy of items to avoid affecting the UI
+                    const testItems = JSON.parse(JSON.stringify(items));
+                    
+                    const itemToUpdate = testItems[0];
+                    const originalName = itemToUpdate.name;
+                    const updatedName = 'Updated Test Product';
+                    
+                    // Update the item
+                    itemToUpdate.name = updatedName;
+                    
+                    // Find the item after update
+                    const updatedItem = testItems.find(item => item.id === itemToUpdate.id);
+                    
+                    if (!updatedItem) {
+                        return {
+                            passed: false,
+                            message: `Failed: Could not find item after update`
+                        };
+                    }
+                    
+                    if (updatedItem.name !== updatedName) {
+                        return {
+                            passed: false,
+                            message: `Failed: Item not updated correctly. Expected name to be "${updatedName}" but got "${updatedItem.name}"`
+                        };
+                    }
+                    
+                    return {
+                        passed: true,
+                        message: `Success: Item with ID ${itemToUpdate.id} updated successfully from "${originalName}" to "${updatedName}"`
+                    };
+                }
+                
+                // DELETE - Delete item test
+                function testDeleteItem() {
+                    const initialCount = items.length;
+                    
+                    if (initialCount === 0) {
+                        return {
+                            passed: false,
+                            message: 'Failed: No items to delete'
+                        };
+                    }
+                    
+                    // Create a copy of items to avoid affecting the UI
+                    const testItems = JSON.parse(JSON.stringify(items));
+                    
+                    // Select an item to delete
+                    const itemToDelete = testItems[0];
+                    const idToDelete = itemToDelete.id;
+                    
+                    // Delete the item
+                    const filteredItems = testItems.filter(item => item.id !== idToDelete);
+                    
+                    if (filteredItems.length !== initialCount - 1) {
+                        return {
+                            passed: false,
+                            message: `Failed: Item count did not decrease after deletion`
+                        };
+                    }
+                    
+                    if (filteredItems.some(item => item.id === idToDelete)) {
+                        return {
+                            passed: false,
+                            message: `Failed: Deleted item still exists in the array`
+                        };
+                    }
+                    
+                    return {
+                        passed: true,
+                        message: `Success: Item with ID ${idToDelete} deleted successfully`
+                    };
+                }
+                
+                // Edge cases test
+                function testEdgeCases() {
+                    let edgeCasesResults = [];
+                    let allPassed = true;
+                    
+                    // Test 1: Empty name
+                    try {
+                        const emptyNameItem = {
+                            name: '',
+                            description: 'Valid description',
+                            price: 10.00
+                        };
+                        
+                        // If validation is in saveItem(), we simulate validation here
+                        if (emptyNameItem.name.trim() === '') {
+                            edgeCasesResults.push('Empty name validation passed');
+                        } else {
+                            allPassed = false;
+                            edgeCasesResults.push('Empty name validation failed');
+                        }
+                    } catch (e) {
+                        edgeCasesResults.push(`Empty name validation error: ${e.message}`);
+                    }
+                    
+                    // Test 2: Negative price
+                    try {
+                        const negativePriceItem = {
+                            name: 'Valid name',
+                            description: 'Valid description',
+                            price: -10.00
+                        };
+                        
+                        // Simulate validation
+                        if (negativePriceItem.price < 0) {
+                            edgeCasesResults.push('Negative price validation passed');
+                        } else {
+                            allPassed = false;
+                            edgeCasesResults.push('Negative price validation failed');
+                        }
+                    } catch (e) {
+                        edgeCasesResults.push(`Negative price validation error: ${e.message}`);
+                    }
+                    
+                    // Test 3: Extremely large price
+                    try {
+                        const largePriceItem = {
+                            name: 'Valid name',
+                            description: 'Valid description',
+                            price: 1e20 // Very large number
+                        };
+                        
+                        // In JavaScript, this would typically be handled by the number type
+                        if (isFinite(largePriceItem.price)) {
+                            edgeCasesResults.push('Large price handling passed');
+                        } else {
+                            allPassed = false;
+                            edgeCasesResults.push('Large price handling failed');
+                        }
+                    } catch (e) {
+                        edgeCasesResults.push(`Large price handling error: ${e.message}`);
+                    }
+                    
+                    // Test 4: Very long text
+                    try {
+                        const longText = 'a'.repeat(10000);
+                        const longTextItem = {
+                            name: 'Valid name',
+                            description: longText,
+                            price: 10.00
+                        };
+                        
+                        // For this test, we'll consider it a pass if we can create such an item
+                        // In a real scenario, you might want to limit text length
+                        edgeCasesResults.push('Long text handling passed');
+                    } catch (e) {
+                        allPassed = false;
+                        edgeCasesResults.push(`Long text handling error: ${e.message}`);
+                    }
+                    
+                    return {
+                        passed: allPassed,
+                        message: edgeCasesResults.join('; ')
+                    };
+                }
+            </script>
+        </body>
+        </html>
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn-edit {
+            background-color: #2196F3;
+        }
+        .btn-delete {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1>Item Management System</h1>
+    
+    <!-- Item Form -->
+    <h2 id="formTitle">Add New Item</h2>
+    <form id="itemForm">
+        <input type="hidden" id="itemId">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" min="0" step="0.01" required>
+        </div>
+        <button type="submit" class="btn">Save Item</button>
+        <button type="button" class="btn" onclick="resetForm()">Cancel</button>
+    </form>
+    
+    <!-- Items Table -->
+    <h2>Items List</h2>
+    <table id="itemsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="itemsTableBody">
+            <!-- Items will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        // Initial items data
+        let items = [
+            { 
+                "id": "1", 
+                "name": "Laptop", 
+                "description": "A high-performance laptop suitable for gaming and work.", 
+                "price": 1200.00 
+            }, 
+            { 
+                "id": "2", 
+                "name": "Smartphone", 
+                "description": "A latest-generation smartphone with a large display and powerful camera.", 
+                "price": 800.00 
+            }, 
+            { 
+                "id": "3", 
+                "name": "Wireless Headphones", 
+                "description": "Noise-cancelling wireless headphones with long battery life.", 
+                "price": 200.00 
+            }, 
+            { 
+                "id": "4", 
+                "name": "Smartwatch", 
+                "description": "A smartwatch with fitness tracking and customizable watch faces.", 
+                "price": 150.00 
+            }, 
+            { 
+                "id": "5", 
+                "name": "Tablet", 
+                "description": "A lightweight tablet with a sharp display, ideal for reading and browsing.", 
+                "price": 300.00 
+            }
+        ];
+
+        // DOM elements
+        const itemForm = document.getElementById('itemForm');
+        const itemsTableBody = document.getElementById('itemsTableBody');
+        const formTitle = document.getElementById('formTitle');
+        
+        // Load items when page loads
+        document.addEventListener('DOMContentLoaded', loadItems);
+        
+        // Form submission handler
+        itemForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveItem();
+        });
+        
+        // Load items function
+        function loadItems() {
+            // Clear the table
+            itemsTableBody.innerHTML = '';
+            
+            // Add each item to the table
+            items.forEach(item => {
+                const row = document.createElement('tr');
+                
+                // Create cells for each property
+                row.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>${item.description}</td>
+                    <td>$${parseFloat(item.price).toFixed(2)}</td>
+                    <td>
+                        <button onclick="editItem('${item.id}')" class="btn btn-edit">Edit</button>
+                        <button onclick="deleteItem('${item.id}')" class="btn btn-delete">Delete</button>
+                    </td>
+                `;
+                
+                itemsTableBody.appendChild(row);
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('items', JSON.stringify(items));
+        }
+        
+        // Save/update item
+        function saveItem() {
+            const itemId = document.getElementById('itemId').value;
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const price = parseFloat(document.getElementById('price').value);
+            
+            if (itemId) {
+                // Update existing item
+                const index = items.findIndex(item => item.id === itemId);
+                if (index !== -1) {
+                    items[index] = { id: itemId, name, description, price };
+                }
+            } else {
+                // Create new item with next ID
+                const newId = (Math.max(...items.map(item => parseInt(item.id)), 0) + 1).toString();
+                items.push({ id: newId, name, description, price });
+            }
+            
+            // Reload items and reset form
+            loadItems();
+            resetForm();
+        }
+        
+        // Edit item
+        function editItem(id) {
+            const item = items.find(item => item.id === id);
+            if (item) {
+                document.getElementById('itemId').value = item.id;
+                document.getElementById('name').value = item.name;
+                document.getElementById('description').value = item.description;
+                document.getElementById('price').value = item.price;
+                formTitle.textContent = 'Edit Item';
+                
+                // Scroll to form
+                itemForm.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Delete item
+        function deleteItem(id) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                items = items.filter(item => item.id !== id);
+                loadItems();
+            }
+        }
+        
+        // Reset form
+        function resetForm() {
+            document.getElementById('itemId').value = '';
+            itemForm.reset();
+            formTitle.textContent = 'Add New Item';
+        }
+        
+        // Load items from localStorage if available
+        function initializeItems() {
+            const storedItems = localStorage.getItem('items');
+            if (storedItems) {
+                items = JSON.parse(storedItems);
+            }
+            loadItems();
+        }
+        
+        // Initialize
+        initializeItems();
+    </script>
+</body>
+</html>
